@@ -69,6 +69,10 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the most frequently occuring object in the array
      */
     public static Object getMostCommon(Object[] objectArray) {
+        OccurrenceCounter oc = new OccurrenceCounter(objectArray);
+        return oc.getMostOccurringObject();
+
+        /*
         ArrayList<Object> keys = new ArrayList();
         ArrayList<Integer> values = new ArrayList();
 
@@ -95,7 +99,8 @@ public class ArrayUtils {
                 retVal = keys.get(i);
             }
         }
-        return retVal;
+        return retVal; */
+
     }
 
 
@@ -105,6 +110,10 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the least frequently occuring object in the array
      */
     public static Object getLeastCommon(Object[] objectArray) {
+        OccurrenceCounter oc = new OccurrenceCounter(objectArray);
+        return oc.getLeastOccurringObject();
+
+        /*
         ArrayList<Object> keys = new ArrayList();
         ArrayList<Integer> values = new ArrayList();
 
@@ -132,6 +141,7 @@ public class ArrayUtils {
             }
         }
         return retVal;
+        */
     }
 
     /**
