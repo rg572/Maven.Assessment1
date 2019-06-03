@@ -25,7 +25,10 @@ public class IntegerUtils {
      */
     public static Integer getProductOfN(Integer n) {
         Integer factorial = 1;
-        for(int i = 2; i <= n; i++){
+        if(n < 0){
+            return null;
+        }
+        for(int i = 2; i <= n; i++ ){
             factorial *= i;
         }
         return factorial;
@@ -36,7 +39,8 @@ public class IntegerUtils {
      * @return integer with identical digits in the reverse order
      */
     public static Integer reverseDigits(Integer val) {
-        StringBuilder sbuild = new StringBuilder(Integer.toString(val));
+
+        StringBuilder sbuild = new StringBuilder(val.toString());
         return new Integer(sbuild.reverse().toString());
     }
 }
