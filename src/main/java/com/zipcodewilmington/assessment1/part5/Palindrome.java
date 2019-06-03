@@ -24,7 +24,7 @@ public class Palindrome {
         String back = sbuild.reverse().toString();
         return front.equals(back);
     }
-    
+
 }
 
 

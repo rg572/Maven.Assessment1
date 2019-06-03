@@ -1,5 +1,7 @@
 package com.zipcodewilmington.assessment1.part2;
 
+import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -31,21 +33,25 @@ public class ArrayUtils {
      * @return an array with identical content excluding the specified `objectToRemove`
      * Given an array of objects, name `objectArray`, and an object `objectToRemove`, return an array of objects with identical contents excluding `objectToRemove`
      */
-    public static Integer[] removeValue(Integer[] objectArray, Integer objectToRemove) {
-        ArrayList<Integer> arrList = new ArrayList(Arrays.asList(objectArray));
-        while(arrList.remove(objectToRemove)){
-            //arrList.remove(objectToRemove);
-        }
+    public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
+        if(objectArray[0] instanceof Integer) {
+            //objectArray = (Integer[]) objectArray;
 
-        /*
-        for(int i = 0; i < arrList.size(); i++){
-            if(arrList.get(i).equals(objectToRemove)){
-
+            ArrayList<Integer> arrList = new ArrayList(Arrays.asList(objectArray));
+            while (arrList.remove(objectToRemove)) {
+                //arrList.remove(objectToRemove);
             }
-        }
-        */
 
-        return arrList.toArray(new Integer[arrList.size()]);
+            Integer[] returnArray = arrList.toArray(new Integer[arrList.size()]);
+            return returnArray;
+        }
+        else{
+            ArrayList<Object> arrList = new ArrayList(Arrays.asList(objectArray));
+            while(arrList.remove(objectToRemove)){}
+            Object[] returnArray = arrList.toArray(new Object[arrList.size()]);
+            return returnArray;
+        }
+
     }
 
     /**
@@ -125,10 +131,21 @@ public class ArrayUtils {
      * @return an array containing all elements in `objectArray` and `objectArrayToAdd`
      * given two arrays `objectArray` and `objectArrayToAdd`, return an array containing all elements in `objectArray` and `objectArrayToAdd`
      */
-    public static Integer[] mergeArrays(Integer[] objectArray, Integer[] objectArrayToAdd) {
-        ArrayList<Integer> objectArrayList = new ArrayList(Arrays.asList(objectArray));
-        ArrayList<Integer> toAdd = new ArrayList(Arrays.asList(objectArrayToAdd));
-        objectArrayList.addAll(toAdd);
-        return objectArrayList.toArray(new Integer[objectArrayList.size()]);
-    }
+    public static Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
+        /*
+        if(objectArray[0] instanceof Double) {
+            ArrayList<Integer> objectArrayList = new ArrayList(Arrays.asList(objectArray));
+            ArrayList<Integer> toAdd = new ArrayList(Arrays.asList(objectArrayToAdd));
+            objectArrayList.addAll(toAdd);
+            return objectArrayList.toArray(new Integer[objectArrayList.size()]);
+        }
+        else{
+
+         */
+            ArrayList<Object> objectArrayList = new ArrayList(Arrays.asList(objectArray));
+            ArrayList<Object> toAdd = new ArrayList(Arrays.asList(objectArrayToAdd));
+            objectArrayList.addAll(toAdd);
+            return objectArrayList.toArray(new Integer[objectArrayList.size()]);
+        }
+   // }
 }
