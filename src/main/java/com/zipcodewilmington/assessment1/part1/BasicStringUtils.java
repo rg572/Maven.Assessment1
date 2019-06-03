@@ -9,7 +9,9 @@ public class BasicStringUtils {
      * @return string with identical content, and the first character capitalized
      */
     public static String camelCase(String str) {
-        return null;
+        str = str.toLowerCase();
+        str = str.substring(0,1).toUpperCase() + str.substring(1);
+        return str;
     }
 
     /**
@@ -17,7 +19,8 @@ public class BasicStringUtils {
      * @return string with identical contents, in the reverse order
      */
     public static String reverse(String str) {
-        return null;
+        StringBuilder sbuild  = new StringBuilder(str);
+        return sbuild.reverse().toString();
     }
 
     /**
@@ -25,7 +28,7 @@ public class BasicStringUtils {
      * @return string with identical contents, in reverse order, with first character capitalized
      */
     public static String reverseThenCamelCase(String str) {
-        return null;
+        return camelCase(reverse(str));
     }
 
 
@@ -34,7 +37,12 @@ public class BasicStringUtils {
      * @return string with identical contents excluding first and last character
      */
     public static String removeFirstAndLastCharacter(String str) {
-        return null;
+        if(str.length() <= 2){
+            return "";
+        }
+        else{
+            return(str.substring(1,str.length()-1));
+        }
     }
 
     /**
@@ -42,6 +50,15 @@ public class BasicStringUtils {
      * @return string with identical characters, each with opposite casing
      */
     public static String invertCasing(String str) {
-        return null;
+        char[] strAsCharArray = str.toCharArray();
+        for(int i = 0; i < strAsCharArray.length; i++){
+            if(Character.isUpperCase(strAsCharArray[i])){
+                strAsCharArray[i] = Character.toLowerCase(strAsCharArray[i]);
+            }
+            else if(Character.isLowerCase(strAsCharArray[i])){
+                strAsCharArray[i] = Character.toUpperCase(strAsCharArray[i]);
+            }
+        }
+        return new String(strAsCharArray);
     }
 }
