@@ -2,7 +2,8 @@ package com.zipcodewilmington.assessment1.part2;
 
 import java.lang.reflect.Type;
 import java.lang.reflect.Field;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by leon on 2/16/18.
