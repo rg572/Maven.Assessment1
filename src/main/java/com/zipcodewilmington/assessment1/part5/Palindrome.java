@@ -18,52 +18,13 @@ public class Palindrome {
     }
 
     public Boolean isPalindrome(String str){
-        //System.out.println(str);
         str = str.toLowerCase();
         String front = str.substring(0,str.length()/2);
         StringBuilder sbuild = new StringBuilder(str.substring(str.length()/2 + str.length()%2));
         String back = sbuild.reverse().toString();
-        //System.out.println("front: " + front + "     back: " + back);
-        //System.out.println(str + ":  " + front + "    " + back + "   " +(front.equals(back) ? "PALINDROME" : ""));
         return front.equals(back);
     }
-
-
-    @Test
-    public void isPalindromeTest1(){
-        String input = "aa";
-
-        Boolean output = isPalindrome(input);
-
-        Assert.assertTrue(output);
-    }
-
-    @Test
-    public void isPalindromeTest2(){
-        String input = "ab";
-
-        Boolean output = isPalindrome(input);
-
-        Assert.assertFalse(output);
-    }
-
-    @Test
-    public void isPalindromeTest3(){
-        String input = "aaa";
-
-        Boolean output = isPalindrome(input);
-
-        Assert.assertTrue(output);
-    }
-
-    @Test
-    public void isPalindromeTest4(){
-        String input = "aab";
-
-        Boolean output = isPalindrome(input);
-
-        Assert.assertFalse(output);
-    }
+    
 }
 
 
