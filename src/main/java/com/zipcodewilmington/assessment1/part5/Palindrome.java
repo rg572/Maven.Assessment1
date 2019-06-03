@@ -18,11 +18,13 @@ public class Palindrome {
     }
 
     public Boolean isPalindrome(String str){
-
+        //System.out.println(str);
         str = str.toLowerCase();
         String front = str.substring(0,str.length()/2);
-        String back = str.substring(str.length()/2 + str.length()%2);
+        StringBuilder sbuild = new StringBuilder(str.substring(str.length()/2 + str.length()%2));
+        String back = sbuild.reverse().toString();
         //System.out.println("front: " + front + "     back: " + back);
+        //System.out.println(str + ":  " + front + "    " + back + "   " +(front.equals(back) ? "PALINDROME" : ""));
         return front.equals(back);
     }
 
