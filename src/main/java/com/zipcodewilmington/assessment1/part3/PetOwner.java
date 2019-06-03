@@ -18,6 +18,7 @@ public class PetOwner {
         if(pets != null){
             for(Pet pet : pets) {
                 petList.add(pet);
+                pet.setOwner(this);
             }
         }
     }
@@ -27,6 +28,7 @@ public class PetOwner {
      */
     public void addPet(Pet pet) {
         petList.add(pet);
+        pet.setOwner(this);
     }
 
     /**
@@ -34,6 +36,7 @@ public class PetOwner {
      */
     public void removePet(Pet pet) {
         petList.remove(pet);
+        pet.setOwner(null);
     }
 
     /**
