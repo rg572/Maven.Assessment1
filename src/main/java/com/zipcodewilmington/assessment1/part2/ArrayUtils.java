@@ -164,7 +164,9 @@ public class ArrayUtils {
             ArrayList<Object> objectArrayList = new ArrayList(Arrays.asList(objectArray));
             ArrayList<Object> toAdd = new ArrayList(Arrays.asList(objectArrayToAdd));
             objectArrayList.addAll(toAdd);
-            return objectArrayList.toArray(new Integer[objectArrayList.size()]);
+            Object[] retArr = toTypedArray(objectArrayList);
+            return retArr;
+            //return objectArrayList.toArray(new Integer[objectArrayList.size()]);
         }
    // }
 }
