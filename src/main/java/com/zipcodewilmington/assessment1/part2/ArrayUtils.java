@@ -2,10 +2,7 @@ package com.zipcodewilmington.assessment1.part2;
 
 import java.lang.reflect.Type;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by leon on 2/16/18.
@@ -34,7 +31,9 @@ public class ArrayUtils {
      * Given an array of objects, name `objectArray`, and an object `objectToRemove`, return an array of objects with identical contents excluding `objectToRemove`
      */
     public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
-        if(objectArray[0] instanceof Integer) {
+        /*
+        if(objectArray[0] instanceof Double) {
+
             //objectArray = (Integer[]) objectArray;
 
             ArrayList<Integer> arrList = new ArrayList(Arrays.asList(objectArray));
@@ -42,16 +41,25 @@ public class ArrayUtils {
                 //arrList.remove(objectToRemove);
             }
 
-            Integer[] returnArray = arrList.toArray(new Integer[arrList.size()]);
+            Object[] returnArray = arrList.toArray(new Integer[arrList.size()]);
+            //Object[] returnArray = arrList.toArray();
             return returnArray;
         }
-        else{
+        else{ */
             ArrayList<Object> arrList = new ArrayList(Arrays.asList(objectArray));
             while(arrList.remove(objectToRemove)){}
-            Object[] returnArray = arrList.toArray(new Object[arrList.size()]);
+            Object[] returnArray = toTypedArray(arrList);
             return returnArray;
-        }
+        //}
 
+    }
+
+    // stolen and adapted from https://stackoverflow.com/questions/3152290/java-how-can-i-dynamically-create-an-array-of-a-specified-type-based-on-the-typ
+    public static <T> Object[] toTypedArray(ArrayList<Object> objectArrayList){
+        Class theClass = objectArrayList.get(0).getClass();
+        T[] array = (T[]) java.lang.reflect.Array.newInstance(theClass, objectArrayList.size());
+        Object[] retArr = objectArrayList.toArray(array);
+        return retArr;
     }
 
     /**
